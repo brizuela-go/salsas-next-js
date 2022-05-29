@@ -13,7 +13,7 @@ export default function Skeleton() {
           margin: 20px auto;
         }
         .skeleton > div {
-          background: #dbcc1a;
+          background: #eee;
           border-radius: 4px;
           margin: 20px 0;
         }
@@ -30,5 +30,5 @@ export default function Skeleton() {
         }
       `}</style>
     </div>
-  )
+  );
 }

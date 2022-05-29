@@ -66,7 +66,7 @@ export default function RecipeDetails({ recipe }) {
       </h2>
 
       <div className="info">
-        <h4 className="mb-3">
+        <h4 className="mb-4">
           <i className="fas fa-stopwatch fa-lg "></i>
           {"  "}
           {cookingTime} minutos

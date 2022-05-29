@@ -5,12 +5,15 @@ import React, { useState } from "react";
 
 export default function Layout({ children }) {
   const [first, setfirst] = useState("");
+  const [bar, setBar] = useState("");
 
   const changeNavbarColor = () => {
     if (window.scrollY >= 20) {
       setfirst("bg-light");
+      setBar("text-dark");
     } else {
       setfirst("");
+      setBar("text-white");
     }
   };
 
@@ -47,7 +50,7 @@ export default function Layout({ children }) {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <i className="fas fa-bars"></i>
+              <i className={`fas fa-bars ${bar}`}></i>
             </button>
             <div
               className="collapse navbar-collapse"
