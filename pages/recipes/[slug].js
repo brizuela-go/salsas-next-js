@@ -53,7 +53,7 @@ export default function RecipeDetails({ recipe }) {
     recipe.fields;
 
   return (
-    <div>
+    <div className="animate__animated animate__fadeIn">
       <div className="banner">
         <Image
           src={"https:" + featuredImage.fields.file.url}
