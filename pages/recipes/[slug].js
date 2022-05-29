@@ -2,6 +2,8 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import Skeleton from "../../components/Skeleton";
+import Head from "next/head";
+import { MDBBadge } from "mdb-react-ui-kit";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -53,56 +55,43 @@ export default function RecipeDetails({ recipe }) {
     recipe.fields;
 
   return (
-    <div className="animate__animated animate__fadeIn">
-      <div className="banner">
-        <Image
-          src={"https:" + featuredImage.fields.file.url}
-          width={featuredImage.fields.file.details.image.width}
-          height={featuredImage.fields.file.details.image.height}
-        />
-        <h2>{title}</h2>
+    <>
+      <Head>
+        <title>Las Salsas | {title}</title>
+      </Head>
+      <div className="animate__animated animate__fadeIn">
+        <img className="mask" src={"https:" + featuredImage.fields.file.url} />
+        <div className="mask" />
+
+        <h2 className="text-white text-center display-1 fw-bolder salsa-title">
+          {title}
+        </h2>
+
+        <div className="info">
+          <h4>
+            <i className="fas fa-stopwatch fa-lg "></i>
+            {"  "}
+            {cookingTime} minutos
+          </h4>
+
+          {ingredients.map((ing) => (
+            <span
+              key={ing}
+              className={`me-2 badge badge-ingredient rounded-pill ${ing
+                .toLowerCase()
+                .split(" ")
+                .join("-")}`}
+            >
+              {ing}
+            </span>
+            // <span key={ing}>{ing}</span>
+          ))}
+        </div>
+
+        <div className="method">
+          <div>{documentToReactComponents(method)}</div>
+        </div>
       </div>
-
-      <div className="info">
-        <p>Takes about {cookingTime} mins to cook.</p>
-        <h3>Ingredients:</h3>
-
-        {ingredients.map((ing) => (
-          <span key={ing}>{ing}</span>
-        ))}
-      </div>
-
-      <div className="method">
-        <h3>Method:</h3>
-        <div>{documentToReactComponents(method)}</div>
-      </div>
-
-      <style jsx>{`
-        h2,
-        h3 {
-          text-transform: uppercase;
-        }
-        .banner h2 {
-          margin: 0;
-          background: #fff;
-          display: inline-block;
-          padding: 20px;
-          position: relative;
-          top: -60px;
-          left: -10px;
-          transform: rotateZ(-1deg);
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-        }
-        .info p {
-          margin: 0;
-        }
-        .info span::after {
-          content: ", ";
-        }
-        .info span:last-child::after {
-          content: ".";
-        }
-      `}</style>
-    </div>
+    </>
   );
 }

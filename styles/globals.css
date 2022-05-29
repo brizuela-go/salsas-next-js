@@ -55,3 +55,80 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
+
+.badge-ingredient {
+  font-size: 1em !important ;
+}
+
+.jitomate {
+  background-color: #f93154;
+}
+
+.cebolla {
+  background-color: #ccc;
+  color: #4f4f4f !important;
+}
+
+.cilantro {
+  background-color: #537150;
+}
+
+.limón {
+  background-color: #c7ea46;
+  color: #4f4f4f !important;
+}
+
+.sal {
+  background-color: #cfd8dc;
+  color: #4f4f4f !important;
+}
+
+.aceite-de-oliva {
+  background-color: #cab254;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (min-width: 375px) and (min-height: 667px) {
+  .salsa-title {
+    margin-top: 4em !important;
+    margin-bottom: 2em !important;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .salsa-title {
+    margin-top: 4em !important;
+    margin-bottom: 13em !important;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .salsa-title {
+    margin-top: 2em !important;
+    margin-bottom: 6em !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .salsa-title {
+    margin-top: 5em !important;
+    margin-bottom: 11em !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .salsa-title {
+    margin-top: 2em !important;
+    margin-bottom: 5em !important;
+  }
+}
