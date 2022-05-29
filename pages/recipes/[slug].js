@@ -1,9 +1,7 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Image from "next/image";
 import Skeleton from "../../components/Skeleton";
 import Head from "next/head";
-import { MDBBadge } from "mdb-react-ui-kit";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -59,38 +57,37 @@ export default function RecipeDetails({ recipe }) {
       <Head>
         <title>Las Salsas | {title}</title>
       </Head>
-      <div className="animate__animated animate__fadeIn">
-        <img className="mask" src={"https:" + featuredImage.fields.file.url} />
-        <div className="mask" />
 
-        <h2 className="text-white text-center display-1 fw-bolder salsa-title">
-          {title}
-        </h2>
+      <img className="mask" src={"https:" + featuredImage.fields.file.url} />
+      <div className="mask" />
 
-        <div className="info">
-          <h4>
-            <i className="fas fa-stopwatch fa-lg "></i>
-            {"  "}
-            {cookingTime} minutos
-          </h4>
+      <h2 className="text-white text-center display-1 fw-bolder salsa-title">
+        {title}
+      </h2>
 
-          {ingredients.map((ing) => (
-            <span
-              key={ing}
-              className={`me-2 badge badge-ingredient rounded-pill ${ing
-                .toLowerCase()
-                .split(" ")
-                .join("-")}`}
-            >
-              {ing}
-            </span>
-            // <span key={ing}>{ing}</span>
-          ))}
-        </div>
+      <div className="info">
+        <h4 className="mb-3">
+          <i className="fas fa-stopwatch fa-lg "></i>
+          {"  "}
+          {cookingTime} minutos
+        </h4>
 
-        <div className="method">
-          <div>{documentToReactComponents(method)}</div>
-        </div>
+        {ingredients.map((ing) => (
+          <span
+            key={ing}
+            className={`me-2 badge badge-ingredient rounded-pill p-2 my-2 ${ing
+              .toLowerCase()
+              .split(" ")
+              .join("-")}`}
+          >
+            {ing}
+          </span>
+          // <span key={ing}>{ing}</span>
+        ))}
+      </div>
+
+      <div className="method mt-5">
+        <div>{documentToReactComponents(method)}</div>
       </div>
     </>
   );
