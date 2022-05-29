@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Layout({ children }) {
   return (
@@ -6,22 +7,16 @@ export default function Layout({ children }) {
       <header>
         <Link href="/">
           <a>
-            <h1>
-              <span>Just Add</span>
-              <span>Marmite</span>
-            </h1>
-            <h2>Spread The Joy</h2>
+            <Image href="/" src="/las-salsas.png" width={537} height={255} />
           </a>
         </Link>
       </header>
 
-      <div className="page-content">
-        { children }
-      </div>
+      <div className="page-content">{children}</div>
 
       <footer>
-        <p>Copyright 2021 Just Add Marmite :)</p>
+        <p>Copyright 2022 Las Salsas</p>
       </footer>
     </div>
-  )
+  );
 }
