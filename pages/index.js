@@ -20,11 +20,13 @@ export async function getStaticProps() {
 export default function Recipes({ recipes }) {
   console.log(recipes);
 
+  const myRecipes = recipes.map((recipe) => (
+    <RecipeCard key={recipe.sys.id} recipe={recipe} />
+  ));
   return (
     <div className="row justify-content-center ">
-      {recipes.map((recipe) => (
-        <RecipeCard key={recipe.sys.id} recipe={recipe} />
-      ))}
+      {myRecipes}
+      {myRecipes}
     </div>
   );
 }
