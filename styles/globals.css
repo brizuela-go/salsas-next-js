@@ -3,7 +3,6 @@
 body {
   margin: 0;
   font-family: "Poppins" !important;
-  font-size: 1.5em;
 }
 .layout {
   min-height: 100vh;
@@ -20,22 +19,7 @@ header a {
   text-transform: uppercase;
   display: inline-block;
 }
-header h1,
-header h2 {
-  margin: 0;
-}
-header span {
-  display: block;
-  line-height: 1em;
-}
-header span:first-child {
-  font-size: 1em;
-  font-weight: 400;
-}
-header span:last-child {
-  font-size: 1.5em;
-  font-weight: 800;
-}
+
 header h2 {
   font-size: 1.2em;
   font-weight: 400;
@@ -84,6 +68,15 @@ footer {
 
 .aceite-de-oliva {
   background-color: #cab254;
+}
+
+.aguacate {
+  background-color: #cfd760;
+  color: #4f4f4f !important;
+}
+
+.serrano {
+  background-color: #556710;
 }
 
 .mask {
