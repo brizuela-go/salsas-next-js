@@ -21,12 +21,10 @@ export default function Recipes({ recipes }) {
   console.log(recipes);
 
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.sys.id} recipe={recipe} />
-        ))}
-      </div>
+    <div className="row justify-content-center ">
+      {recipes.map((recipe) => (
+        <RecipeCard key={recipe.sys.id} recipe={recipe} />
+      ))}
     </div>
   );
 }

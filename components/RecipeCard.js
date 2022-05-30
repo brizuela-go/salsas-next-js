@@ -5,7 +5,7 @@ export default function RecipeCard({ recipe }) {
   const { title, slug, cookingTime, thumbnail, descripcion } = recipe.fields;
 
   return (
-    <div className="col-lg-4 col-md-6 my-5">
+    <div className="col-lg-4 col-md-6 col-12 my-5">
       <div className="card text-center ">
         <div
           className="bg-image hover-overlay ripple"
