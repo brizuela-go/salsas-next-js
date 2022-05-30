@@ -59,13 +59,13 @@ export default function RecipeDetails({ recipe }) {
       </Head>
       <img className="mask" src={"https:" + featuredImage.fields.file.url} />
       <div className="mask" />
-      <div className="mb-14 mb-lg-12 mb-md-14 mb-sm-11 " />
+      <div className="mb-11 mb-lg-12 mb-md-14 mb-sm-11 " />
       <h2 className="text-white text-center display-1 fw-bolder salsa-title">
         {title}
       </h2>
       <div className="mb-14 mb-lg-10 mb-md-14 " />
       ‎
-      <div className="mb-sm-9 mb-12 mb-lg-0 mb-md-14" />
+      <div className="mb-sm-9 mb-14 mb-lg-0 mb-md-14" />
       ‎
       <div className="mb-md-12" />
       <div className="info">
