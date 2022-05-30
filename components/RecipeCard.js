@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function RecipeCard({ recipe }) {
   const { title, slug, cookingTime, thumbnail, descripcion } = recipe.fields;
