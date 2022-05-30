@@ -23,10 +23,5 @@ export default function Recipes({ recipes }) {
   const myRecipes = recipes.map((recipe) => (
     <RecipeCard key={recipe.sys.id} recipe={recipe} />
   ));
-  return (
-    <div className="row justify-content-center ">
-      {myRecipes}
-      {myRecipes}
-    </div>
-  );
+  return <div className="row justify-content-center ">{myRecipes}</div>;
 }
