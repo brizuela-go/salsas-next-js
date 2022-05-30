@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const [bar, setBar] = useState("");
 
   const changeNavbarColor = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 250) {
       setfirst("bg-light");
       setBar("text-dark");
     } else {
