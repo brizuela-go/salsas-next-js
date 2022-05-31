@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.2",
     "animate.css": "^4.1.1",
     "contentful": "^8.1.8",
     "mdb-react-ui-kit": "^3.0.0",

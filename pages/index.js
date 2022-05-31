@@ -1,7 +1,6 @@
 import { createClient } from "contentful";
 import { useState } from "react";
 import RecipeCard from "../components/RecipeCard";
-import { MDBInput } from "mdb-react-ui-kit";
 
 export async function getStaticProps() {
   const client = createClient({

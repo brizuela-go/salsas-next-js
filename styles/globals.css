@@ -84,6 +84,18 @@ footer {
   color: #4f4f4f !important;
 }
 
+.árbol {
+  background-color: #ac4739;
+}
+
+.agua {
+  background-color: #80c5de;
+}
+
+.guajillo {
+  background-color: #89372c;
+}
+
 .mask {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100vw;
