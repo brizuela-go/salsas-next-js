@@ -57,39 +57,41 @@ export default function RecipeDetails({ recipe }) {
       <Head>
         <title>Las Salsas | {title}</title>
       </Head>
-      <img className="mask" src={"https:" + featuredImage.fields.file.url} />
-      <div className="mask" />
-      <div className="mb-11 mb-lg-12 mb-md-14 mb-sm-11 " />
-      <h2 className="text-white text-center display-1 fw-bolder salsa-title">
-        {title}
-      </h2>
-      <div className="mb-14 mb-lg-10 mb-md-14 " />
-      ‎
-      <div className="mb-sm-9 mb-14 mb-lg-0 mb-md-14" />
-      ‎
-      <div className="mb-md-12" />
-      <div className="info">
-        <h4 className="mb-4">
-          <i className="fas fa-stopwatch fa-lg "></i>
-          {"  "}
-          {cookingTime} minutos
-        </h4>
+      <div className="animate__animated animate__fadeIn">
+        <img className="mask" src={"https:" + featuredImage.fields.file.url} />
+        <div className="mask" />
+        <div className="mb-11 mb-lg-12 mb-md-14 mb-sm-11 " />
+        <h2 className="text-white text-center display-1 fw-bolder salsa-title">
+          {title}
+        </h2>
+        <div className="mb-14 mb-lg-10 mb-md-14 " />
+        ‎
+        <div className="mb-sm-9 mb-14 mb-lg-0 mb-md-14" />
+        ‎
+        <div className="mb-md-12" />
+        <div className="info">
+          <h4 className="mb-4">
+            <i className="fas fa-stopwatch fa-lg "></i>
+            {"  "}
+            {cookingTime} minutos
+          </h4>
 
-        {ingredients.map((ing) => (
-          <span
-            key={ing}
-            className={`me-2 badge badge-ingredient rounded-pill p-2 my-2 ${ing
-              .toLowerCase()
-              .split(" ")
-              .join("-")}`}
-          >
-            {ing}
-          </span>
-          // <span key={ing}>{ing}</span>
-        ))}
-      </div>
-      <div className="method mt-5">
-        <div>{documentToReactComponents(method)}</div>
+          {ingredients.map((ing) => (
+            <span
+              key={ing}
+              className={`me-2 badge badge-ingredient rounded-pill p-2 my-2 ${ing
+                .toLowerCase()
+                .split(" ")
+                .join("-")}`}
+            >
+              {ing}
+            </span>
+            // <span key={ing}>{ing}</span>
+          ))}
+        </div>
+        <div className="method mt-5">
+          <div>{documentToReactComponents(method)}</div>
+        </div>
       </div>
     </>
   );
