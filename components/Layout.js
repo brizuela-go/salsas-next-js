@@ -33,12 +33,12 @@ export default function Layout({ children }) {
       </Head>
       <header>
         <nav
-          className={`navbar navbar-expand-lg fixed-top navbar-scroll ${first}`}
+          className={`navbar navbar-expand-lg fixed-top navbar-scroll ${first} `}
         >
           <div className="container-fluid">
             <Link href="/">
               <a className="navbar-brand">
-                <img src="/icon.png" width="80px" alt="las salsas logo" />
+                <img src="/icon.png" width="70px" alt="las salsas logo" />
               </a>
             </Link>
             <button
@@ -57,27 +57,19 @@ export default function Layout({ children }) {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto">
-                <li className="nav-item me-2">
-                  <button type="button" className="btn btn-light">
-                    Acerca de
-                  </button>
+                <li className="nav-item">
+                  <Link href="/acerca-de">
+                    <a class={`nav-link ${bar}`}>Acerca de</a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <button type="button" className="btn btn-light">
-                    CONTACT
-                  </button>
+                  <Link href="/contacto">
+                    <a class={`nav-link ${bar}`}>Contacto</a>
+                  </Link>
                 </li>
               </ul>
               <ul className="navbar-nav d-flex flex-row">
-                <li className="nav-item ms-4 me-3 me-lg-0">
-                  <a
-                    className="nav-link btn btn-floating d-flex justify-content-center btn-light"
-                    href="https://www.facebook.com/Meditation-Aid-104520335561800/"
-                    role="button"
-                  >
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                </li>
+                <li className="nav-item ms-4 me-3 me-lg-0"></li>
               </ul>
             </div>
           </div>

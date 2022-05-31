@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
 
+html {
+  scroll-behavior: auto !important;
+}
+
 body {
   margin: 0;
   font-family: "Poppins" !important;
@@ -11,20 +15,9 @@ body {
   flex-direction: column;
 }
 header {
-  text-align: center;
   margin: 60px 0;
 }
-header a {
-  text-decoration: none;
-  color: black;
-  text-transform: uppercase;
-  display: inline-block;
-}
 
-header h2 {
-  font-size: 1.2em;
-  font-weight: 400;
-}
 footer {
   background: #111;
   color: #bbb;
@@ -96,7 +89,6 @@ footer {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  position: absolute;
   top: 0;
   left: 0;
   z-index: -1;

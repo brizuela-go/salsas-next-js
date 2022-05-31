@@ -31,27 +31,29 @@ export default function Recipes({ recipes }) {
     );
 
   return (
-    <div className="row justify-content-center ">
-      <div className="input-group rounded">
-        <input
-          type="search"
-          className="form-control rounded"
-          placeholder="Buscar una salsa"
-          aria-label="Search"
-          aria-describedby="search-addon"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <span className="input-group-text border-0" id="search-addon">
-          <i className="fas fa-search"></i>
-        </span>
-      </div>
-      {filteredRecipes.length === 0 ? (
-        <div className="mt-5 text-center">
-          <h2>Oops, ninguna salsa coincide con el nombre "{search}"</h2>
+    <>
+      <div className="row justify-content-center ">
+        <div className="input-group rounded">
+          <input
+            type="search"
+            className="form-control rounded "
+            placeholder="Buscar una salsa"
+            aria-label="Search"
+            aria-describedby="search-addon"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <span className="input-group-text border-0" id="search-addon">
+            <i className="fas fa-search"></i>
+          </span>
         </div>
-      ) : (
-        filteredRecipes
-      )}
-    </div>
+        {filteredRecipes.length === 0 ? (
+          <div className="mt-5 text-center">
+            <h2>Oops, ninguna salsa coincide con el nombre "{search}"</h2>
+          </div>
+        ) : (
+          filteredRecipes
+        )}
+      </div>
+    </>
   );
 }
