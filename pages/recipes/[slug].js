@@ -49,13 +49,49 @@ export const getStaticProps = async ({ params }) => {
 export default function RecipeDetails({ recipe }) {
   if (!recipe) return <Skeleton />;
 
-  const { featuredImage, title, cookingTime, ingredients, method } =
-    recipe.fields;
+  const {
+    featuredImage,
+    title,
+    cookingTime,
+    ingredients,
+    method,
+    descripcion,
+    slug,
+  } = recipe.fields;
 
   return (
     <>
       <Head>
         <title>Las Salsas | {title}</title>
+        <meta charset="utf-8" />
+        <meta name="description" content={descripcion} />
+        <meta name="image" content={"https:" + featuredImage.fields.file.url} />
+        <meta itemprop="name" content={`Las Salsas | ${title}`} />
+        <meta itemprop="description" content={descripcion} />
+        <meta
+          itemprop="image"
+          content={"https:" + featuredImage.fields.file.url}
+        />
+        <meta property="og:title" content={`Las Salsas | ${title}`} />
+        <meta property="og:description" content={descripcion} />
+        <meta
+          property="og:image"
+          content={"https:" + featuredImage.fields.file.url}
+        />
+        <meta
+          property="og:url"
+          content={"https://las-salsas.vercel.app/recipes/" + slug}
+        />
+        <meta property="og:site_name" content={`Las Salsas | ${title}`} />
+        <meta property="og:locale" content="es_MX" />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content={`Las Salsas | ${title}`} />
+        <meta property="twitter:description" content={descripcion} />
+        <meta
+          property="twitter:image:src"
+          content={"https:" + featuredImage.fields.file.url}
+        />
       </Head>
       <img className="mask" src={"https:" + featuredImage.fields.file.url} />
       <div className="mask" />
