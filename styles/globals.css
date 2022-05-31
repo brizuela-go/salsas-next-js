@@ -81,6 +81,16 @@ footer {
   background-color: #556710;
 }
 
+.ajo {
+  background-color: #f2e9d2;
+  color: #4f4f4f !important;
+}
+
+.tomate-verde- {
+  background-color: #dbe6be;
+  color: #4f4f4f !important;
+}
+
 .mask {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100vw;

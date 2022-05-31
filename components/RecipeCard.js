@@ -11,10 +11,12 @@ export default function RecipeCard({ recipe }) {
           className="bg-image hover-overlay ripple"
           data-mdb-ripple-color="light"
         >
-          <img
-            src={"https:" + thumbnail.fields.file.url}
-            className="img-fluid"
-          />
+          <Link href={"/recipes/" + slug}>
+            <img
+              src={"https:" + thumbnail.fields.file.url}
+              className="img-fluid"
+            />
+          </Link>
         </div>
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
