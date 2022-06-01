@@ -5,10 +5,9 @@ export default function RecipeCard({ recipe }) {
 
   return (
     <div className="col-lg-6 col-md-12 col-12 my-5">
-      {/* Comment */}
       <div className="card text-center ">
         <div
-          className="bg-image hover-overlay ripple"
+          className="bg-image hover-overlay ripple recipe-card-img"
           data-mdb-ripple-color="light"
         >
           <Link href={"/recipes/" + slug}>
