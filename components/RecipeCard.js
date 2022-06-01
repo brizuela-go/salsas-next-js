@@ -4,7 +4,7 @@ export default function RecipeCard({ recipe }) {
   const { title, slug, cookingTime, thumbnail, descripcion } = recipe.fields;
 
   return (
-    <div className="col-lg-6 col-md-12 col-12 my-5 animate__animated animate__fadeInUp">
+    <div className="col-lg-6 col-md-12 col-12 my-5">
       {/* Comment */}
       <div className="card text-center ">
         <div
