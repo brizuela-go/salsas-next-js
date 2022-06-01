@@ -56,15 +56,19 @@ export default function Layout({ children }) {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav me-auto">
+              <ul className="navbar-nav gap-3 my-lg-0 my-md-0 my-4">
                 <li className="nav-item">
                   <Link href="/acerca-de">
-                    <a class={`nav-link ${bar}`}>Acerca de</a>
+                    <button class={`nav-link  btn btn-light p-2`}>
+                      Acerca de
+                    </button>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link href="/contacto">
-                    <a class={`nav-link ${bar}`}>Contacto</a>
+                    <button class={`nav-link  btn btn-light p-2`}>
+                      Contacto
+                    </button>
                   </Link>
                 </li>
               </ul>
