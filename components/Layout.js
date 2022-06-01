@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import Head from "next/head";
 import React, { useState } from "react";
 
@@ -23,6 +22,9 @@ export default function Layout({ children }) {
   return (
     <div className="layout">
       <Head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Recetario de Las Mejores Salsas" />
+        <meta name="image" content="/las-salsas.png" />
         <title>Las Salsas</title>
         <link rel="icon" href="/icon.png" />
         <link rel="apple-touch-icon" href="/icon.png" />

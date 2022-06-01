@@ -14,6 +14,7 @@ export default function RecipeCard({ recipe }) {
           <Link href={"/recipes/" + slug}>
             <img
               src={"https:" + thumbnail.fields.file.url}
+              alt={title}
               className="img-fluid"
             />
           </Link>
