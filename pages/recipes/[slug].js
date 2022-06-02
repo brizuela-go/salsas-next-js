@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Skeleton from "../../components/Skeleton";
 import Head from "next/head";
+import Link from "next/link";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -145,24 +146,22 @@ export default function RecipeDetails({ recipe, recipes }) {
         <div>{documentToReactComponents(method)}</div>
       </div>
       <nav aria-label="..." className="mt-5 ">
-        <ul class="pagination">
-          <li class={`page-item ${disabled2}`}>
-            <a
-              class="page-link pagination-element"
-              href={`/recipes/${pages[currentPage + 1]}`}
-            >
-              <i class="fas fa-angle-double-left me-3"></i>
-              Anterior
-            </a>
+        <ul className="pagination">
+          <li className={`page-item ${disabled2}`}>
+            <Link href={`/recipes/${pages[currentPage + 1]}`}>
+              <a className="page-link pagination-element">
+                <i className="fas fa-angle-double-left me-3"></i>
+                Anterior
+              </a>
+            </Link>
           </li>
-          <li class={`page-item ${disabled}`}>
-            <a
-              class="page-link pagination-element"
-              href={`/recipes/${pages[currentPage - 1]}`}
-            >
-              Siguiente
-              <i class="fas fa-angle-double-right ms-3"></i>
-            </a>
+          <li className={`page-item ${disabled}`}>
+            <Link href={`/recipes/${pages[currentPage - 1]}`}>
+              <a className="page-link pagination-element">
+                Siguiente
+                <i className="fas fa-angle-double-right ms-3"></i>
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>
