@@ -2,6 +2,7 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Skeleton from "../../components/Skeleton";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -13,9 +14,11 @@ export const getStaticPaths = async () => {
     content_type: "receta",
   });
 
+  const recipes = res.items;
+
   const paths = res.items.map((item) => {
     return {
-      params: { slug: item.fields.slug },
+      params: { slug: item.fields.slug, recipes },
     };
   });
 
@@ -26,6 +29,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  const res = await client.getEntries({ content_type: "receta" });
+
   const { items } = await client.getEntries({
     content_type: "receta",
     "fields.slug": params.slug,
@@ -41,14 +46,15 @@ export const getStaticProps = async ({ params }) => {
   }
 
   return {
-    props: { recipe: items[0] },
+    props: { recipe: items[0], recipes: res.items },
     revalidate: 1,
   };
 };
 
-export default function RecipeDetails({ recipe }) {
+export default function RecipeDetails({ recipe, recipes }) {
   if (!recipe) return <Skeleton />;
-
+  const router = useRouter();
+  let pages = recipes.map((item) => item.fields.slug);
   const {
     featuredImage,
     title,
@@ -58,9 +64,17 @@ export default function RecipeDetails({ recipe }) {
     descripcion,
     slug,
   } = recipe.fields;
+  const currentPage = pages.indexOf(slug);
+  let disabled = "";
+  let disabled2 = "";
+  currentPage === 0 ? (disabled = "disabled") : (disabled = "");
+  currentPage === pages.length - 1
+    ? (disabled2 = "disabled")
+    : (disabled2 = "");
 
   return (
     <>
+      {console.log(recipes)}
       <Head>
         <title>Las Salsas | {title}</title>
         <meta charset="utf-8" />
@@ -127,6 +141,28 @@ export default function RecipeDetails({ recipe }) {
       <div className="method mt-5">
         <div>{documentToReactComponents(method)}</div>
       </div>
+      <nav aria-label="..." className="mt-5 ">
+        <ul class="pagination">
+          <li class={`page-item ${disabled2}`}>
+            <a
+              class="page-link pagination-element"
+              onClick={() => router.push("/recipes/" + pages[currentPage + 1])}
+            >
+              <i class="fas fa-angle-double-left me-3"></i>
+              Anterior
+            </a>
+          </li>
+          <li class={`page-item ${disabled}`}>
+            <a
+              class="page-link pagination-element"
+              onClick={() => router.push("/recipes/" + pages[currentPage - 1])}
+            >
+              Siguiente
+              <i class="fas fa-angle-double-right ms-3"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }

@@ -109,3 +109,8 @@ footer {
 .recipe-card-img {
   cursor: pointer;
 }
+
+.pagination-element {
+  font-size: larger !important;
+  cursor: pointer;
+}
