@@ -1,5 +1,9 @@
 module.exports = {
-  images: {
-    domains: ['images.ctfassets.net'],
+  i18n: {
+    locales: ["es"],
+    defaultLocale: "es",
   },
-}
+  images: {
+    domains: ["images.ctfassets.net"],
+  },
+};
