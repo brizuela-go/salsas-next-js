@@ -2,7 +2,6 @@ import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Skeleton from "../../components/Skeleton";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -53,7 +52,7 @@ export const getStaticProps = async ({ params }) => {
 
 export default function RecipeDetails({ recipe, recipes }) {
   if (!recipe) return <Skeleton />;
-  const router = useRouter();
+
   let pages = recipes.map((item) => item.fields.slug);
   const {
     featuredImage,
@@ -107,7 +106,11 @@ export default function RecipeDetails({ recipe, recipes }) {
           content={"https:" + featuredImage.fields.file.url}
         />
       </Head>
-      <img className="mask" src={"https:" + featuredImage.fields.file.url} />
+      <img
+        className="mask"
+        alt="salsa"
+        src={"https:" + featuredImage.fields.file.url}
+      />
       <div className="mask" />
       <div className="mb-11 mb-lg-12 mb-md-14 mb-sm-11 " />
       <h2 className="text-white text-center display-1 fw-bolder salsa-title">
@@ -146,7 +149,7 @@ export default function RecipeDetails({ recipe, recipes }) {
           <li class={`page-item ${disabled2}`}>
             <a
               class="page-link pagination-element"
-              onClick={() => router.push("/recipes/" + pages[currentPage + 1])}
+              href={`/recipes/${pages[currentPage + 1]}`}
             >
               <i class="fas fa-angle-double-left me-3"></i>
               Anterior
@@ -155,7 +158,7 @@ export default function RecipeDetails({ recipe, recipes }) {
           <li class={`page-item ${disabled}`}>
             <a
               class="page-link pagination-element"
-              onClick={() => router.push("/recipes/" + pages[currentPage - 1])}
+              href={`/recipes/${pages[currentPage - 1]}`}
             >
               Siguiente
               <i class="fas fa-angle-double-right ms-3"></i>
